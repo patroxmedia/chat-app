@@ -58,7 +58,7 @@ const Forums = () => {
               <h2>{topic.Text}</h2>
               <p>{topic.description}</p>
 
-<Link href={`/chat/${topic.slug}`} className="flex justify-center items-center">
+<Link href={`/forum/${topic.slug}`} className="flex justify-center items-center">
 
               <Button className="px-4 border border-slate-400 py-2">
                 Discuss Now
