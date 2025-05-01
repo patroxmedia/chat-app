@@ -4,11 +4,11 @@ import React from 'react';
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 
-import { useUser } from '@clerk/nextjs';
+// import { useUser } from '@clerk/nextjs';
 
 export default function SimpleNavbar() {
-  const user = useUser()
-  console.log(user.user?.id)
+  // const user = useUser()
+  // console.log(user.user)
   return (
     <nav className="bg-gray-800 py-4 flex justify-center items-center">
       <div className="container mx-auto flex items-center justify-between">

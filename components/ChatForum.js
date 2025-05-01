@@ -1,29 +1,29 @@
-"use client";
+"use client"
 
+import React from 'react'
 import { useState, useEffect } from 'react';
 
 import { useCreateChatClient, Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, Window } from 'stream-chat-react';
 
 import 'stream-chat-react/dist/css/v2/index.css';
 
-const apiKey = '2byr2vdnb7ma';
-const userId = 'user_2vxDoboEhEz4JCedHpxheo0CT34';
-const userName = 'Deepak';
-const userToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcl8ydnhEb2JvRWhFejRKQ2VkSHB4aGVvMENUMzQifQ.w2emTY-f9wxercGuFv1piZ84o-BSuism3na0t9OT-U0';
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+    // return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
-const user= {
-  id: userId,
-  name: userName,
-  image: `https://getstream.io/random_png/?name=${userName}`,
-};
+const ChatForum = ({clerkUser,slug}) => {
+    const apiKey = '2byr2vdnb7ma';
+const userId = clerkUser.id;
+const userName = clerkUser.name;
+const userToken = clerkUser.token
 
-export default function ChatForum({ slug }) {
-    function toTitleCase(str) {
-        return str.replace(
-             /\b[a-z]/g,
-              (char) => char.toUpperCase() 
-            );
-    } 
+const user = {
+    id: userId,
+    name: userName,
+    image: `https://getstream.io/random_png/?name=${userName}`,
+  };
+
   const [channel, setChannel] = useState();
   const client = useCreateChatClient({
     apiKey,
@@ -34,13 +34,14 @@ export default function ChatForum({ slug }) {
   useEffect(() => {
     if (!client) return;
 
-    const channel = client.channel('messaging', slug, {
-      image: 'https://getstream.io/random_png/?name=react',
-      name: toTitleCase(slug.replace(/-/g, "  ")) + 'Discussion',
+    const channel = client.channel("messaging", slug, {
+      image: "https://getstream.io/random_png/?name=react",
+      name: capitalizeWords(slug) + "Discussion",
       members: [userId],
     });
 
     setChannel(channel);
+    // channel.addMembers([userId]);
   }, [client]);
 
   if (!client) return <div>Setting up client & connection...</div>;
@@ -57,5 +58,7 @@ export default function ChatForum({ slug }) {
       </Channel>
     </Chat>
   );
-};
+ 
+}
 
+export default ChatForum

@@ -8,31 +8,31 @@ const topics = [
       Text: 'Python',
       img: '/python.png',
       description: 'Lets learn Python together!',
-        slug: 'python'
+        slug: 'python-new'
     },
     {
       Text: 'JavaScript',
       img: '/javascript.png',
       description: 'Master JavaScript one step at a time.',
-      slug: 'javascript'
+      slug: 'javascript-new'
     },
     {
       Text: 'React',
       img: '/react.png',
       description: 'Build amazing UIs with React!',
-        slug: 'react'
+        slug: 'react-new'
     },
     {
       Text: 'Node.js',
       img: '/nodejs.png',
       description: 'Learn backend development with Node.js.',
-        slug: 'nodejs'
+        slug: 'nodejs-new'
     },
     {
       Text: 'TypeScript',
       img: '/typescript.png',
       description: 'Write safer code with TypeScript!',
-        slug: 'typescript'
+        slug: 'typescript-new'
     },
   ];
 
